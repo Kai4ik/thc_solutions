@@ -21,10 +21,7 @@ exports.getProduct = async (req, res, next) => {
         error: "Product Not Found!",
       });
     }
-    return res.status(200).json({
-      success: true,
-      data: product,
-    });
+    return res.status(200).json(product);
   } catch (err) {
     return res.status(500).json({
       error: "Error",
