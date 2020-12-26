@@ -1,5 +1,3 @@
-// dotenv used to load environment variables from .env file and store them in "process.env"
-const dotenv = require("dotenv").config({ path: "./configuration/config.env" });
 const express = require("express");
 const cors = require("cors");
 
