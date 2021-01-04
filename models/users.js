@@ -10,6 +10,7 @@ const userSchema = new mongoose.Schema(
       unique: true,
     },
     password: String,
+    cartProducts: Product,
   },
   { versionKey: "" }
 );
