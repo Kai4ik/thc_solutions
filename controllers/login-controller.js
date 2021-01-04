@@ -16,6 +16,10 @@ exports.checkUser = async (req, res, next) => {
       .compare(req.body.password, user.password)
       .then((existingUser) => {
         if (existingUser) {
+          req.session.user = {
+            username: user.username,
+            email: user.email,
+          };
           return res.status(200).json({
             user: user,
             success: true,
