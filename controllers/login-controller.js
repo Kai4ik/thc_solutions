@@ -16,10 +16,6 @@ exports.checkUser = async (req, res, next) => {
       .compare(req.body.password, user.password)
       .then((existingUser) => {
         if (existingUser) {
-          req.session.user = {
-            username: user.username,
-            email: user.email,
-          };
           return res.status(200).json({
             user: user,
             success: true,
@@ -31,6 +27,28 @@ exports.checkUser = async (req, res, next) => {
           });
         }
       });
+  } catch (err) {
+    return res.status(500).json({
+      error: "Internal Error",
+    });
+  }
+};
+
+exports.getUser = async (req, res, next) => {
+  try {
+    const user = await User.findOne({ email: req.params.email });
+
+    if (!user) {
+      return res.status(200).json({
+        error: "User Not Found",
+        success: false,
+      });
+    }
+
+    return res.status(200).json({
+      user: user,
+      success: true,
+    });
   } catch (err) {
     return res.status(500).json({
       error: "Internal Error",
