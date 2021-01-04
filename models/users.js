@@ -10,12 +10,6 @@ const userSchema = new mongoose.Schema(
       unique: true,
     },
     password: String,
-    inCartProducts: [
-      {
-        products: Product,
-        qty: Number,
-      },
-    ],
   },
   { versionKey: "" }
 );
