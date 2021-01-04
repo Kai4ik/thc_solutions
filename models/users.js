@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Product = require("./products");
 
 const userSchema = new mongoose.Schema(
   {
@@ -9,6 +10,12 @@ const userSchema = new mongoose.Schema(
       unique: true,
     },
     password: String,
+    inCartProducts: [
+      {
+        products: Product,
+        qty: Number,
+      },
+    ],
   },
   { versionKey: "" }
 );
