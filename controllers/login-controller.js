@@ -55,3 +55,29 @@ exports.getUser = async (req, res, next) => {
     });
   }
 };
+
+exports.updateUser = async (req, res, next) => {
+  try {
+    const user = await User.findOneAndUpdate(
+      { email: req.params.email },
+      { cartProducts: req.body.cartProducts },
+      { new: true }
+    );
+
+    if (!user) {
+      return res.status(200).json({
+        error: "User Not Found",
+        success: false,
+      });
+    }
+
+    return res.status(200).json({
+      user: user,
+      success: true,
+    });
+  } catch (err) {
+    return res.status(500).json({
+      error: "Internal Error",
+    });
+  }
+};
