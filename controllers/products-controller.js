@@ -16,12 +16,16 @@ exports.getProduct = async (req, res, next) => {
     const product = await Product.findById(req.params.id);
 
     if (!product) {
-      return res.status(404).json({
-        success: false,
+      return res.status(200).json({
         error: "Product Not Found!",
+        success: false,
       });
     }
-    return res.status(200).json(product);
+
+    return res.status(200).json({
+      product: product,
+      success: true,
+    });
   } catch (err) {
     return res.status(500).json({
       error: "Error",
