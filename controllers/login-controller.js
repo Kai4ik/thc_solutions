@@ -73,7 +73,7 @@ exports.updateUser = async (req, res, next) => {
 
     return res.status(200).json({
       user: user,
-      success: true,
+      success: req.body.cartProducts,
     });
   } catch (err) {
     return res.status(500).json({
