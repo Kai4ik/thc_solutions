@@ -61,6 +61,7 @@ exports.updateUser = async (req, res, next) => {
     const user = await User.findOneAndUpdate(
       { email: req.params.email },
       { cartProducts: req.body.cartProducts },
+      { wishlistProducts: req.body.wishlistProducts },
       { new: true }
     );
 

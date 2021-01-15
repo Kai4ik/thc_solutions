@@ -18,6 +18,14 @@ const userSchema = new mongoose.Schema(
         qty: Number,
       },
     ],
+    wishlistProducts: [
+      {
+        product: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Product",
+        },
+      },
+    ],
   },
   { versionKey: "" }
 );
