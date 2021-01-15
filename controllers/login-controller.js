@@ -60,8 +60,10 @@ exports.updateUser = async (req, res, next) => {
   try {
     const user = await User.findOneAndUpdate(
       { email: req.params.email },
-      { cartProducts: req.body.cartProducts },
-      //{ wishlistProducts: req.body.wishlistProducts },
+      {
+        cartProducts: req.body.cartProducts,
+        wishlistProducts: req.body.wishlistProducts,
+      },
       { new: true }
     );
 
