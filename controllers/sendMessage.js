@@ -17,6 +17,7 @@ exports.sendMessage = async (req, res, next) => {
       .catch((error) => {
         console.error(error);
       });
+    return res.status(200);
   } catch (err) {
     return res.status(500).json({
       error: err,
