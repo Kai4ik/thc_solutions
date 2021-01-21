@@ -20,9 +20,6 @@ app.use("/api/registration", registration);
 const login = require("./routes/login");
 app.use("/api/login", login);
 
-const contactForm = require("./routes/contactForm");
-app.use("/api/contactForm", contactForm);
-
 // callback function that called after server starts listening for requests
 const serverStart = () =>
   console.log(`Server listening on ${process.env.PORT}`);
