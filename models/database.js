@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
-const mongoURI =
-  process.env.MONGODB_URI ||
-  "mongodb+srv://Kai4ik:mongoisreallycool@thc-solutions.za8nk.mongodb.net/THC-Solutions?retryWrites=true&w=majority";
+const mongoURI = process.env.MONGODB_URI;
+//"mongodb+srv://Kai4ik:mongoisreallycool@thc-solutions.za8nk.mongodb.net/THC-Solutions?retryWrites=true&w=majority";
 
 const connectDB = async () => {
   try {
