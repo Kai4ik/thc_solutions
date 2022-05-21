@@ -16,6 +16,8 @@ const userSchema = new mongoose.Schema(
           ref: "Product",
         },
         qty: Number,
+        price: Number,
+        option: String,
       },
     ],
     wishlistProducts: [
@@ -24,6 +26,23 @@ const userSchema = new mongoose.Schema(
           type: mongoose.Schema.Types.ObjectId,
           ref: "Product",
         },
+      },
+    ],
+    transactions: [
+      {
+        date: Date,
+        amount: Number,
+        products: [
+          {
+            product: {
+              type: mongoose.Schema.Types.ObjectId,
+              ref: "Product",
+            },
+            qty: Number,
+            option: String,
+            price: Number,
+          },
+        ],
       },
     ],
   },

@@ -9,7 +9,7 @@ const { route } = require("./products");
 const router = express.Router();
 
 router.route("/").post(checkUser);
-router.route("/:email").get(getUser);
-router.route("/:email").put(updateUser);
+router.route("/").get(getUser);
+router.route("/").put(updateUser);
 
 module.exports = router;
